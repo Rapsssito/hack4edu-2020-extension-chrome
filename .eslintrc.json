@@ -1,0 +1,104 @@
+{
+    "env": {
+        "browser": true,
+        "webextensions": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "script"
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "rules": {
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 100,
+                "ignoreUrls": true
+            }
+        ],
+        "eqeqeq": [
+            "error",
+            "always"
+        ],
+        "brace-style": "error",
+        "no-eq-null": "error",
+        "curly": [
+            "error",
+            "multi-line",
+            "consistent"
+        ],
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "semi": [
+            "error"
+        ],
+        "no-multi-spaces": [
+            "error"
+        ],
+        "space-infix-ops": [
+            "error"
+        ],
+        "key-spacing": [
+            "error"
+        ],
+        "comma-spacing": [
+            "error"
+        ],
+        "no-trailing-spaces": [
+            "error"
+        ],
+        "keyword-spacing": [
+            "error"
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "space-before-blocks": [
+            "error"
+        ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 2,
+                "maxEOF": 1,
+                "maxBOF": 0
+            }
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "never",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
+        "no-var": "error",
+        "prefer-template": [
+            "error"
+        ],
+        "require-atomic-updates": "off",
+        "strict": [
+            "error",
+            "global"
+        ]
+    }
+}

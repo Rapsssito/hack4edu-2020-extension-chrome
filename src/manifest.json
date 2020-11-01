@@ -1,0 +1,9 @@
+{
+  "name": "hack4edu-2020",
+  "version": "1.0",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_title": "hack4edu-2020",
+    "default_popup": "popup.html"
+  }
+}

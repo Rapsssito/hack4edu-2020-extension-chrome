@@ -1,0 +1,23 @@
+{
+  "name": "hack4edu-2020-extension-chrome",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rapsssito/hack4edu-2020-extension-chrome.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rapsssito/hack4edu-2020-extension-chrome/issues"
+  },
+  "homepage": "https://github.com/Rapsssito/hack4edu-2020-extension-chrome#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "typescript": "^4.0.5"
+  }
+}
