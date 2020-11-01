@@ -1,14 +1,14 @@
 'use strict';
 
 function contentLoaded() {
-    // const re = new RegExp('bear', 'gi');
-    // const matches = document.documentElement.innerHTML.match(re) || [];
-    // chrome.runtime.sendMessage({
-    //     url: window.location.href,
-    //     count: matches.length
-    // });
-    document.querySelector('button').onclick = () => {
-        console.log('Click');
+    const DISABLE_BOT_BUTTON = document.getElementById('disable-bot-button');
+    DISABLE_BOT_BUTTON.onclick = () => {
+        chrome.tabs.query({ currentWindow: true, active: true },
+            (tabs) => {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    type: 'DISABLE-BOT'
+                });
+            });
     };
 }
 
