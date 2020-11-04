@@ -2,6 +2,7 @@
 
 const BOT_ELEMENT_ID = 'bot-messenger';
 const BOT_SCRIPT_ID = 'bot-script-id';
+let IS_BOT_ACTIVE = false;
 
 function addBotToPage() {
     // Add bot HTML
@@ -13,6 +14,7 @@ function addBotToPage() {
           chat-title="Test"
           agent-id="4a478516-0606-483a-858a-0a528eeecb96"
           language-code="es"
+          style="z-index: 99"
         ></df-messenger>
     `;
 
@@ -21,6 +23,7 @@ function addBotToPage() {
     script.id = BOT_SCRIPT_ID;
     script.src = 'https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1';
     document.head.appendChild(script);
+    IS_BOT_ACTIVE = true;
 }
 
 function removeBotFromPage() {
@@ -28,6 +31,7 @@ function removeBotFromPage() {
     document.body.removeChild(botElement);
     const botScript = document.getElementById(BOT_SCRIPT_ID);
     document.head.removeChild(botScript);
+    IS_BOT_ACTIVE = false;
 }
 
 function isMoodlePage() {
@@ -37,13 +41,16 @@ function isMoodlePage() {
 }
 
 // Handle messages
-chrome.runtime.onMessage.addListener((request) => {
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     switch (request.type) {
-        case 'DISABLE-BOT':
+        case 'DISABLE_BOT':
             removeBotFromPage();
             break;
-        case 'ENABLE-BOT':
+        case 'ENABLE_BOT':
             addBotToPage();
+            break;
+        case 'IS_BOT_ACTIVE':
+            sendResponse(IS_BOT_ACTIVE);
             break;
     }
 });
