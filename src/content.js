@@ -9,13 +9,22 @@ function addBotToPage() {
     document.body.innerHTML += `
         <df-messenger
           id="${BOT_ELEMENT_ID}"
-          chat-icon="https://storage.googleapis.com/cloudprod-apiai/4af2327e-4141-4e9e-b654-d99f1be6b5e8_x.png"
+          chat-icon="https://github.com/Rapsssito/hack4edu-2020-extension-chrome/raw/main/icon-36.png"
           intent="WELCOME"
-          chat-title="MoodleBot"
+          chat-title="MiM"
           agent-id="4a478516-0606-483a-858a-0a528eeecb96"
           language-code="es"
           style="z-index: 99"
         ></df-messenger>
+    `;
+
+    document.body.innerHTML += `
+        <style>
+            df-messenger {
+            --df-messenger-button-titlebar-color: #ff8661;
+            --df-messenger-send-icon: #ff8661;
+            }
+        </style>
     `;
 
     // Add script
@@ -24,6 +33,26 @@ function addBotToPage() {
     script.src = 'https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1';
     document.head.appendChild(script);
     IS_BOT_ACTIVE = true;
+
+    const dfMessenger = document.querySelector('df-messenger');
+
+    const doc = document;
+    // Handle suggestion operations
+    dfMessenger.addEventListener('df-chip-clicked', function (event) {
+        switch (event.detail.query) {
+            case "Hazlo por mi":
+                // Open creation menu
+                doc.querySelector('.section-modchooser-text').click();
+                break;
+        }
+    });
+
+    // Mueve el contador de reset a la izquierda, si existe
+    try {
+        doc.getElementById('resetcountdown').style.left = '0';
+        doc.getElementById('resetcountdown').style.right = '';
+        doc.getElementById('resetcountdown').style['z-index'] = 1000;
+    } catch (error) { }
 }
 
 function removeBotFromPage() {
