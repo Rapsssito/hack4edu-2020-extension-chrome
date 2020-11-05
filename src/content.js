@@ -38,9 +38,9 @@ function addBotToPage() {
 
     const doc = document;
     // Handle suggestion operations
-    dfMessenger.addEventListener('df-chip-clicked', function (event) {
+    dfMessenger.addEventListener('df-chip-clicked', function(event) {
         switch (event.detail.query) {
-            case "Hazlo por mi":
+            case 'Hazlo por mi':
                 // Open creation menu
                 doc.querySelector('.section-modchooser-text').click();
                 break;
@@ -52,7 +52,9 @@ function addBotToPage() {
         doc.getElementById('resetcountdown').style.left = '0';
         doc.getElementById('resetcountdown').style.right = '';
         doc.getElementById('resetcountdown').style['z-index'] = 1000;
-    } catch (error) { }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function removeBotFromPage() {
